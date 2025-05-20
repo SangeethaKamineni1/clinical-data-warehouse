@@ -39,10 +39,9 @@ def authenticate_user(credentials_file, input_username, input_password):
                 file_password = row['password'].strip()
                 file_role = row['role'].strip()
 
-                print(f"[DEBUG] Comparing: {file_username} == {input_username} and {file_password} == {input_password}")
-
+                
                 if file_username == input_username and file_password == input_password:
-                    print(f" Login successful. Role: {file_role}")
+                    
                     return User(file_username, file_role)
 
     except FileNotFoundError:
@@ -50,8 +49,9 @@ def authenticate_user(credentials_file, input_username, input_password):
     except Exception as e:
         print(f"Error reading credentials file: {e}")
 
-    print("Invalid credentials. Access denied.")
+   
     return None
+
 
 
 
